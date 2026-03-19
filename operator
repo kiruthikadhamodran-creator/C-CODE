@@ -1,0 +1,23 @@
+// You are using GCC
+#include<stdio.h>
+int main()
+{
+    float i; 
+    scanf("%f",&i);
+    if(i<100)
+    {
+    i=i;
+    printf("%.2f",i);
+    }
+    else if(i>=100&&i<=500)
+    {
+    i=i*1.5;
+    printf("%.2f",i);
+}
+    else
+    {
+    i=i*3;
+    printf("%.2f",i);
+    }
+    
+}
