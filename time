@@ -1,0 +1,12 @@
+
+#include<stdio.h>
+int main()
+{
+  int x,y;
+  float t;
+  double g;
+    g=9.8;
+    scanf("%d%d",&x,&y);
+    t=sqrt((2*x*y)/g);
+    printf("%.2f",t);
+}
