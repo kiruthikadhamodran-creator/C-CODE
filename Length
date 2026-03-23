@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+#include <limits.h>
+
+int main() {
+    char s[100005], t[100005];
+    scanf("%s", s);
+    scanf("%s", t);
+
+    int need[256] = {0}, have[256] = {0};
+    int lenS = strlen(s), lenT = strlen(t);
+
+    for(int i = 0; i < lenT; i++)
+        need[t[i]]++;
+
+    int left = 0, count = 0;
+    int minLen = INT_MAX, start = 0;
+
+    for(int right = 0; right < lenS; right++) {
+        have[s[right]]++;
+
+        if(have[s[right]] <= need[s[right]])
+            count++;
+
+        while(count == lenT) {
+            if(right - left + 1 < minLen) {
+                minLen = right - left + 1;
+                start = left;
+            }
+
+            have[s[left]]--;
+            if(have[s[left]] < need[s[left]])
+                count--;
+
+            left++;
+        }
+    }
+
+    if(minLen == INT_MAX)
+        printf("");
+    else
+        for(int i = start; i < start + minLen; i++)
+            printf("%c", s[i]);
+
+    return 0;
+}
