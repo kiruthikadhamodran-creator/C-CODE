@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int V, g[20][20], path[20];
 
 int safe(int v, int pos){
